@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'eu.appsatori.fatjar'
+
+repositories {
+    jcenter()
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "eu.appsatori:gradle-fatjar-plugin:0.3"
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'lib/main', include: '*.jar')
+    compile 'ch.qos.logback:logback-classic:1.1.7'
+    compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.4.0.v20161208'
+    compile group: 'org.eclipse.jetty', name: 'jetty-unixsocket', version: '9.4.0.v20161208'
+    compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '9.4.0.v20161208'
+}
